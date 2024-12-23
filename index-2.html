@@ -1,0 +1,53 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Let it go ...</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-image: url('IMG_1848.JPEG');
+            background-size: cover;
+            background-position: center;
+            font-family: Arial, sans-serif;
+            color: white;
+            text-align: center;
+        }
+
+        h1 {
+            margin-top: 20vh;
+            font-size: 4em;
+        }
+
+        .stopwatch {
+            margin-top: 20px;
+            font-size: 2em;
+        }
+    </style>
+</head>
+<body>
+    <h1>Let it go ...</h1>
+    <div class="stopwatch" id="stopwatch"></div>
+
+    <script>
+        function updateStopwatch() {
+            const startDate = new Date('2024-12-23T12:30:00');
+            const now = new Date();
+            const elapsed = now - startDate;
+
+            const days = Math.floor(elapsed / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((elapsed % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((elapsed % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((elapsed % (1000 * 60)) / 1000);
+
+            document.getElementById('stopwatch').textContent =
+                `${days} Days ${hours} Hours ${minutes} Minutes ${seconds} Seconds`;
+        }
+
+        setInterval(updateStopwatch, 1000);
+    </script>
+</body>
+</html>
